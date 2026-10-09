@@ -68,7 +68,7 @@ h1, h2, h3, p { margin-top: 0; }
 .button span { font-size: 16px; }
 .text-link { font-size: 12px; font-weight: 700; }
 .text-link span { margin-left: 9px; font-size: 16px; color: var(--coral); }
-.hero-note { display: flex; align-items: center; gap: 14px; margin-top: 70px; color: var(--muted); font-size: 10px; line-height: 1.6; letter-spacing: .08em; text-transform: uppercase; }
+.hero-note { display: flex; align-items: center; gap: 14px; margin-top: 42px; color: var(--muted); font-size: 10px; line-height: 1.6; letter-spacing: .08em; text-transform: uppercase; }
 .note-line { width: 45px; height: 2px; background: var(--coral); }
 
 .hero-art { position: relative; align-self: center; height: 520px; display: flex; align-items: center; justify-content: center; margin-top: 20px; }

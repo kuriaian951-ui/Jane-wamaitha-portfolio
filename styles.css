@@ -318,3 +318,49 @@ h1, h2, h3, p { margin-top: 0; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
 
+/* Jane's portrait-led introduction */
+.hero { grid-template-columns: minmax(0, 1fr) minmax(350px, .9fr); gap: clamp(30px, 5vw, 76px); background: radial-gradient(ellipse at 76% 43%, #f4e4d7 0, transparent 37%), var(--paper); }
+.hero h1 { max-width: 680px; font-size: clamp(58px, 7.2vw, 94px); line-height: .98; letter-spacing: -.065em; }
+.hero h1 em { color: var(--plum); font-weight: 500; }
+.hero-tagline { margin: -9px 0 14px; color: #9b5b51; font: 500 clamp(17px, 1.8vw, 22px)/1.4 var(--serif); }
+.hero-portrait-wrap { position: relative; width: min(100%, 520px); justify-self: end; margin: 15px 3% 0 0; isolation: isolate; }
+.hero-portrait { position: relative; z-index: 1; height: min(68vh, 620px); min-height: 440px; margin: 0; overflow: hidden; border: 8px solid rgba(255, 255, 255, .78); border-radius: 230px 230px 24px 24px; background: var(--mint); box-shadow: 0 28px 70px rgba(48, 35, 77, .19); }
+.hero-portrait::after { position: absolute; inset: 45% 0 0; background: linear-gradient(transparent, rgba(33, 26, 43, .54)); content: ""; pointer-events: none; }
+.hero-portrait img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 51% 35%; }
+.hero-portrait figcaption { position: absolute; z-index: 2; right: 16px; bottom: 16px; left: 16px; display: flex; align-items: center; gap: 12px; padding: 13px 15px; border: 1px solid rgba(255, 255, 255, .68); border-radius: 14px; background: rgba(255, 254, 250, .94); box-shadow: 0 10px 30px rgba(35, 24, 43, .12); backdrop-filter: blur(12px); }
+.portrait-initials { width: 40px; height: 40px; flex: 0 0 40px; display: grid; place-items: center; border-radius: 50%; color: #fff; background: var(--plum); font: 600 14px var(--serif); }
+.hero-portrait figcaption strong, .hero-portrait figcaption small { display: block; }
+.hero-portrait figcaption strong { color: var(--ink); font-size: 12px; }
+.hero-portrait figcaption small { margin-top: 4px; color: var(--muted); font-size: 10px; }
+.caption-spark { margin-left: auto; color: var(--coral); font-size: 22px; }
+.portrait-sun { position: absolute; z-index: -1; top: -35px; right: -28px; width: 170px; height: 170px; border-radius: 50%; background: var(--butter); }
+.portrait-orbit { position: absolute; z-index: -1; right: -47px; bottom: 18px; width: 76%; height: 79%; border: 1px solid rgba(85, 56, 142, .25); border-radius: 50%; transform: rotate(-22deg); }
+.portrait-badge { position: absolute; z-index: 2; top: 28%; left: -56px; display: flex; align-items: center; gap: 8px; padding: 12px 15px; border: 1px solid #fff; border-radius: 999px; color: var(--plum-dark); background: var(--butter); box-shadow: 0 10px 26px rgba(48, 35, 77, .12); font-size: 8px; font-weight: 700; letter-spacing: .09em; transform: rotate(-7deg); }
+.portrait-badge i { width: 4px; height: 4px; border-radius: 50%; background: var(--coral); }
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: minmax(0, 1fr) minmax(300px, .85fr); gap: 24px; }
+  .hero-portrait-wrap { width: 100%; margin-right: 0; }
+  .hero-portrait { min-height: 390px; height: min(62vh, 530px); }
+  .portrait-badge { left: -25px; }
+}
+
+@media (max-width: 650px) {
+  .hero { gap: 22px; }
+  .hero h1 { margin: 24px 0 19px; font-size: clamp(54px, 13.7vw, 76px); }
+  .hero-tagline { margin-top: -7px; font-size: 19px; }
+  .hero-portrait-wrap { width: min(100%, 430px); align-self: center; margin: 16px auto 0; }
+  .hero-portrait { height: clamp(360px, 105vw, 470px); min-height: 0; border-width: 6px; border-radius: 190px 190px 22px 22px; }
+  .hero-portrait figcaption { right: 12px; bottom: 12px; left: 12px; gap: 9px; padding: 11px 12px; }
+  .hero-portrait figcaption strong { font-size: 11px; }
+  .hero-portrait figcaption small { font-size: 9px; }
+  .portrait-initials { width: 36px; height: 36px; flex-basis: 36px; }
+  .portrait-badge { top: 27%; left: -12px; gap: 6px; padding: 10px 11px; font-size: 7px; }
+  .portrait-sun { top: -22px; right: -12px; width: 125px; height: 125px; }
+  .portrait-orbit { right: -16px; }
+}
+
+@media (max-width: 360px) {
+  .hero h1 { font-size: 52px; }
+  .portrait-badge { left: -8px; }
+}

@@ -24,9 +24,6 @@ const panel = document.querySelector('#sample-panel');
 if (tabs && panel) {
   const money = (value) => `KES ${Math.round(value).toLocaleString('en-KE')}`;
   const number = (value) => Math.max(0, Number(value) || 0);
-  const escapeText = (value) => String(value).replace(/[&<>"']/g, (char) => ({
-    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-  }[char]));
   const table = (headings, rows, foot = '') => `<div class="sheet-scroll"><table class="sheet-table"><thead><tr>${headings.map((item) => `<th>${item}</th>`).join('')}</tr></thead><tbody>${rows}</tbody>${foot ? `<tfoot>${foot}</tfoot>` : ''}</table></div>`;
   const input = (id, value, label) => `<input class="sheet-input" id="${id}" type="number" min="0" step="100" value="${value}" aria-label="${label}">`;
   const metric = (label, id, value = '—') => `<div class="sheet-metric"><span>${label}</span><strong id="${id}">${value}</strong></div>`;
@@ -90,6 +87,7 @@ if (tabs && panel) {
       panel.querySelector('#sales-best').textContent = `${days[profits.indexOf(max)][0]} · ${money(max)}`;
       panel.querySelector('#sales-average').textContent = money(totalSales / 7);
       panel.querySelector('#sales-chart').innerHTML = profits.map((profit, i) => `<div class="sample-bar"><span>${days[i][0]}</span><i style="height:${Math.max(3, Math.max(0, profit) / (max || 1) * 70)}px"></i></div>`).join('');
+      panel.querySelector('#sales-chart').setAttribute('aria-label', `Daily profit: ${profits.map((profit, i) => `${days[i][0]} ${money(profit)}`).join('; ')}.`);
     };
     panel.querySelectorAll('input').forEach((field) => field.addEventListener('input', calculate));
     calculate();
